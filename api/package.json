@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "author": "Edgar Lins",
+  "license": "ISC",
+  "description": "API desenvolvida no programa explorer da Rocketseat.",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
