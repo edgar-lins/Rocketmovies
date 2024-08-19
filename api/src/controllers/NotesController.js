@@ -63,7 +63,16 @@ class NotesController {
             const filterTags = tags.split(',').map(tag => tag.trim());
 
             notes = await knex("movie_tags")
+            .select([
+                "movie_notes.id",
+                "movie_notes.title",
+                "movie_notes.user_id"
+            ])
+            .where("movie_notes.user_id", user_id)
+            .whereLike("movie_notes.title", `%${title}%`)
             .whereIn("name", filterTags)
+            .innerJoin("movie_notes", "movie_notes.id", "movie_tags.note_id")
+            .orderBy("movie_notes.title")
 
         } else {
             notes = await knex("movie_notes")
