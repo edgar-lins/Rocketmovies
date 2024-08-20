@@ -2,12 +2,12 @@ const knex = require("../database/knex");
 
 class NotesController {
     async create(request, response) {
-        const { title, descriptions, rating, tags } = request.body;
+        const { title, description, rating, tags } = request.body;
         const { user_id } = request.params;
 
         const [note_id] = await knex("movie_notes").insert({
             title,
-            descriptions,
+            description,
             rating,
             user_id
         });
